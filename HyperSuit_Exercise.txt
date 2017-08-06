@@ -1,0 +1,64 @@
+1) Résué du travail effectué
+
+J'ai commencé par réparer le package pour qu'il n'y ait pas d'erreurs au lancement (rajouter le script des
+ventilateurs & remettre les composants manquants à leur place)
+
+Ensuite j'ai fait le contrôleur de personnage, puis j'ai rajouté des colliders qui manquaient au plafond.
+On peut se déplacer ave les flèches, ou zqsd, et sauter avec espace. E permet d'intéragir avec les boutons
+et Echap permet de dé-locker la souris pour pouvoir sortir de la fenêtre.
+
+J'ai fait les présentoirs à armes (Il s'agit d'un musée d'armes, parce qu'il y à beaucoup d'assets d'armes 
+sur le store)
+
+J'ai ensuite fait les boutons. Il y à 3 boutons bleus qui changent aléatoirement la couleur de la lumière,
+un bouton rouge/vert qui allume le courant (allume les lumières, fait tourner les armes sur les présentoirs
+et permet à la porte de bouger), et enfin un bouton vert/rouge aussi qui contrôle les ventilateurs. 
+
+J'ai fini avec la porte, qui s'ouvre automatiquement quand le joueur s'approche si elle à du courant, et
+se referme au bout d'un moment.
+
+2) Résumé du temps passé par tâche
+
+Installation et setup :
+
+Téléchargement et installation du package : 1 min (+ 2h de MàJ d'Unity)
+Réparer les ventilateur + préparer l'interface d'intéraction : 30 minutes
+Il m'a fallu environ 15 minutes pour rajouter tous les colliders manquants au plafond
+
+Personnage :
+Je n'avais jamais fait de contrôleur de style FPS auparavant, donc j'ai regardé quelque vidéos sur le sujet (Environ 30min)
+Le contrôleur de déplacement du personnage en lui-même à pris environ 30 minutes à être satisfaisant
+
+Lumières :
+Lumières colorées : environ 20 minutes
+Modification du material pour changer la lumière ambiante : Environ 20 minutes aussi
+
+Boutons :
+Créer/placer les boutons à pris environ 30 minutes
+
+Armes :
+Trouver les armes sur le store, les installer et les placer correctement à pris environ 30 minutes
+
+Porte :
+Créer et gérer correctement la porte à pris 45 minutes
+
+3) Fonctionnement
+
+Le contrôleur FPS est tout simple et tout basique, il gère le déplacement dans un script, attaché au GameObject du joueur,
+et la caméra dans un autre script, attaché à la caméra principale, qui est elle-même attachée au joueur.
+
+Chaque bouton hérite de la classe Interactable. Le joueur raycast au centre de son écran, et si le raycast touche
+un GameObject avec un script héritant d'Interactable, il peut activer le bouton en appuyant sur E. Interact() est appelé
+sur la classe du bouton, ce qui provoque l'intéraction. Les contrôleurs intéragissent avec leurs objets via un tableau de ces objets,
+rempli dans l'éditeur.
+
+La porte fonctionne un peu différemment, elle raycast à différents endroits pour voir si elle y trouve le joueur,
+et s'ouvre si le joueur est présent et le switch du courant allumé.
+
+Les assets ont été trouvés sur le store Unity
+
+4) Remarques et questions
+
+La scène de test du package à des références manquantes (Les sons et scripts des ventilateurs au plafond, des matériaux de physique, des colliders...), est-ce voulu ?
+La seule difficulté que j'aie rencontrée était le fait que les différentes parties de la scène prééxistante soient statiques,
+ce qui empêchait la porte de bien fonctionner
